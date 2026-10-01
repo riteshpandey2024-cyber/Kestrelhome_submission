@@ -357,4 +357,3 @@ Validation is always **out-of-time** (model frozen at date D, scored on claims a
 
 ---
 
-*Partner history freeze date: **30 Jun 2026** · Model version: `kestrel-fraud-lr-2026-10-01`*
