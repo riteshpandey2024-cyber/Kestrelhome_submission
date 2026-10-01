@@ -1,0 +1,343 @@
+{
+  "data_facts": {
+    "train_rows_raw": 12029,
+    "train_rows_after_dedupe": 11348,
+    "duplicate_resubmissions_removed": 681,
+    "undecided_labels_dropped": 202,
+    "labelled_rows": 11146,
+    "frauds": 141,
+    "base_rate": 0.012650278126682218,
+    "accuracy_of_flagging_nothing": 0.9873497218733178,
+    "rows_with_embedded_instructions_in_description": 4,
+    "legacy_zoho_rows_zero_may_hide_undecided": 4606,
+    "fraud_rate_pre_policy_change": 0.01080802882141019,
+    "fraud_rate_post_policy_change": 0.025157232704402517,
+    "post_policy_segments": {
+      "new_partner_small_uninspected": [
+        161,
+        34
+      ],
+      "new_partner_other": [
+        51,
+        0
+      ],
+      "old_partner_small_uninspected": [
+        924,
+        1
+      ],
+      "old_partner_other": [
+        295,
+        1
+      ]
+    },
+    "new_partners_with_small_uninspected_post_policy": 45,
+    "new_partners_with_any_fraud_post_policy": 8,
+    "frauds_in_top_5_new_partners_post_policy": 29,
+    "post_policy_frauds_total": 36
+  },
+  "validation": [
+    {
+      "name": "V0: model frozen 31 Jan 2026, scored on Feb-Apr 2026 (old regime)",
+      "train_rows": 5298,
+      "train_frauds": 60,
+      "val_rows": 2138,
+      "K": 117,
+      "model": {
+        "n": 2138,
+        "frauds": 23,
+        "base_rate": 0.010757717492984098,
+        "auc": 0.8394285126940075,
+        "pr_auc": 0.40219636964534966,
+        "accuracy_always_legit": 0.989242282507016,
+        "k": 117,
+        "frauds_caught": 14,
+        "frauds_total": 23,
+        "precision": 0.11965811965811966,
+        "recall": 0.6086956521739131,
+        "fraud_inr_stopped": 109037.0,
+        "goodwill_inr": 39140.0,
+        "net_inr": 69897.0,
+        "stopped_per_check": 931.9401709401709,
+        "net_per_check": 597.4102564102565
+      },
+      "auc_ci95": [
+        0.7335853399433427,
+        0.9306618340941654
+      ],
+      "stopped_per_check_ci95": [
+        397.8002136752137,
+        1657.7166666666665
+      ],
+      "calibration": {
+        "mean_predicted": 0.010099838773376323,
+        "actual_rate": 0.010757717492984098
+      }
+    },
+    {
+      "name": "V1: model frozen 30 Apr 2026, scored on May-Jun 2026",
+      "train_rows": 7436,
+      "train_frauds": 83,
+      "val_rows": 1431,
+      "K": 80,
+      "model": {
+        "n": 1431,
+        "frauds": 36,
+        "base_rate": 0.025157232704402517,
+        "auc": 0.09200517722023097,
+        "pr_auc": 0.014150825080075228,
+        "accuracy_always_legit": 0.9748427672955975,
+        "k": 80,
+        "frauds_caught": 1,
+        "frauds_total": 36,
+        "precision": 0.0125,
+        "recall": 0.027777777777777776,
+        "fraud_inr_stopped": 17866.0,
+        "goodwill_inr": 30020.0,
+        "net_inr": -12154.0,
+        "stopped_per_check": 223.325,
+        "net_per_check": -151.925
+      },
+      "auc_ci95": [
+        0.05554123733847222,
+        0.15507873974901776
+      ],
+      "stopped_per_check_ci95": [
+        0.0,
+        669.975
+      ],
+      "calibration": {
+        "mean_predicted": 0.005161158839895047,
+        "actual_rate": 0.025157232704402517
+      },
+      "baseline_random": {
+        "n": 1431,
+        "frauds": 36,
+        "base_rate": 0.025157232704402517,
+        "auc": 0.5192154520111509,
+        "pr_auc": 0.028726893934871073,
+        "accuracy_always_legit": 0.9748427672955975,
+        "k": 80,
+        "frauds_caught": 0,
+        "frauds_total": 36,
+        "precision": 0.0,
+        "recall": 0.0,
+        "fraud_inr_stopped": 0.0,
+        "goodwill_inr": 30400.0,
+        "net_inr": -30400.0,
+        "stopped_per_check": 0.0,
+        "net_per_check": -380.0
+      },
+      "baseline_amount_only": {
+        "n": 1431,
+        "frauds": 36,
+        "base_rate": 0.025157232704402517,
+        "auc": 0.4914277180406213,
+        "pr_auc": 0.03014209706464551,
+        "accuracy_always_legit": 0.9748427672955975,
+        "k": 80,
+        "frauds_caught": 1,
+        "frauds_total": 36,
+        "precision": 0.0125,
+        "recall": 0.027777777777777776,
+        "fraud_inr_stopped": 17866.0,
+        "goodwill_inr": 30020.0,
+        "net_inr": -12154.0,
+        "stopped_per_check": 223.325,
+        "net_per_check": -151.925
+      },
+      "baseline_new_partner_only": {
+        "n": 1431,
+        "frauds": 36,
+        "base_rate": 0.025157232704402517,
+        "auc": 0.9149940262843489,
+        "pr_auc": 0.17523095211454287,
+        "accuracy_always_legit": 0.9748427672955975,
+        "k": 80,
+        "frauds_caught": 17,
+        "frauds_total": 36,
+        "precision": 0.2125,
+        "recall": 0.4722222222222222,
+        "fraud_inr_stopped": 23679.0,
+        "goodwill_inr": 23940.0,
+        "net_inr": -261.0,
+        "stopped_per_check": 295.9875,
+        "net_per_check": -3.2625
+      },
+      "baseline_boosted_trees_all_features": {
+        "n": 1431,
+        "frauds": 36,
+        "base_rate": 0.025157232704402517,
+        "auc": 0.24147749900438076,
+        "pr_auc": 0.015828937412121304,
+        "accuracy_always_legit": 0.9748427672955975,
+        "k": 80,
+        "frauds_caught": 1,
+        "frauds_total": 36,
+        "precision": 0.0125,
+        "recall": 0.027777777777777776,
+        "fraud_inr_stopped": 686.0,
+        "goodwill_inr": 30020.0,
+        "net_inr": -29334.0,
+        "stopped_per_check": 8.575,
+        "net_per_check": -366.675
+      }
+    },
+    {
+      "name": "V2: model frozen 31 May 2026, scored on Jun 2026",
+      "train_rows": 8147,
+      "train_frauds": 97,
+      "val_rows": 720,
+      "K": 39,
+      "model": {
+        "n": 720,
+        "frauds": 22,
+        "base_rate": 0.030555555555555555,
+        "auc": 0.9428236519927066,
+        "pr_auc": 0.7250103154957347,
+        "accuracy_always_legit": 0.9694444444444444,
+        "k": 39,
+        "frauds_caught": 19,
+        "frauds_total": 22,
+        "precision": 0.48717948717948717,
+        "recall": 0.8636363636363636,
+        "fraud_inr_stopped": 25715.0,
+        "goodwill_inr": 7600.0,
+        "net_inr": 18115.0,
+        "stopped_per_check": 659.3589743589744,
+        "net_per_check": 464.4871794871795
+      },
+      "auc_ci95": [
+        0.8339643396717896,
+        0.994714805871362
+      ],
+      "stopped_per_check_ci95": [
+        381.97115384615387,
+        900.8974358974359
+      ],
+      "calibration": {
+        "mean_predicted": 0.04709890908449168,
+        "actual_rate": 0.030555555555555555
+      },
+      "baseline_random": {
+        "n": 720,
+        "frauds": 22,
+        "base_rate": 0.030555555555555555,
+        "auc": 0.6628679343579057,
+        "pr_auc": 0.05531141523960168,
+        "accuracy_always_legit": 0.9694444444444444,
+        "k": 39,
+        "frauds_caught": 3,
+        "frauds_total": 22,
+        "precision": 0.07692307692307693,
+        "recall": 0.13636363636363635,
+        "fraud_inr_stopped": 2857.0,
+        "goodwill_inr": 13680.0,
+        "net_inr": -10823.0,
+        "stopped_per_check": 73.25641025641026,
+        "net_per_check": -277.5128205128205
+      },
+      "baseline_amount_only": {
+        "n": 720,
+        "frauds": 22,
+        "base_rate": 0.030555555555555555,
+        "auc": 0.46027611357124254,
+        "pr_auc": 0.04933927877107184,
+        "accuracy_always_legit": 0.9694444444444444,
+        "k": 39,
+        "frauds_caught": 1,
+        "frauds_total": 22,
+        "precision": 0.02564102564102564,
+        "recall": 0.045454545454545456,
+        "fraud_inr_stopped": 17866.0,
+        "goodwill_inr": 14440.0,
+        "net_inr": 3426.0,
+        "stopped_per_check": 458.1025641025641,
+        "net_per_check": 87.84615384615384
+      },
+      "baseline_new_partner_only": {
+        "n": 720,
+        "frauds": 22,
+        "base_rate": 0.030555555555555555,
+        "auc": 0.9001041938004689,
+        "pr_auc": 0.2756295529180976,
+        "accuracy_always_legit": 0.9694444444444444,
+        "k": 39,
+        "frauds_caught": 7,
+        "frauds_total": 22,
+        "precision": 0.1794871794871795,
+        "recall": 0.3181818181818182,
+        "fraud_inr_stopped": 9420.0,
+        "goodwill_inr": 12160.0,
+        "net_inr": -2740.0,
+        "stopped_per_check": 241.53846153846155,
+        "net_per_check": -70.25641025641026
+      },
+      "baseline_boosted_trees_all_features": {
+        "n": 720,
+        "frauds": 22,
+        "base_rate": 0.030555555555555555,
+        "auc": 0.9353347225840063,
+        "pr_auc": 0.29635360165475044,
+        "accuracy_always_legit": 0.9694444444444444,
+        "k": 39,
+        "frauds_caught": 11,
+        "frauds_total": 22,
+        "precision": 0.28205128205128205,
+        "recall": 0.5,
+        "fraud_inr_stopped": 12845.0,
+        "goodwill_inr": 10640.0,
+        "net_inr": 2205.0,
+        "stopped_per_check": 329.35897435897436,
+        "net_per_check": 56.53846153846154
+      }
+    }
+  ],
+  "test_expectation": {
+    "test_rows": 2252,
+    "expected_fraud_count": 119.495798099216,
+    "expected_fraud_rate": 0.05306207730871048,
+    "expected_accuracy_flag_nothing": 0.9469379226912895,
+    "queue_size_K": 120,
+    "queue_score_threshold": 0.26079899065208656,
+    "expected_frauds_in_queue": 92.66089520129418,
+    "expected_fraud_inr_stopped": 138597.60293298028,
+    "expected_goodwill_inr": 10388.859823508214,
+    "total_expected_fraud_inr_in_test": 188101.63018363377,
+    "queue_new_partner_share": 1.0,
+    "queue_distinct_partners": 23,
+    "queue_small_uninspected_share": 0.925,
+    "test_new_partner_small_uninspected_rows": 327,
+    "calibration_factor_from_V2": 0.6487529360975501,
+    "calibrated_expected_fraud_count": 77.52324986818644,
+    "calibrated_expected_frauds_in_queue": 60.114027823266994,
+    "calibrated_stopped_inr": 89915.6018388534,
+    "calibrated_goodwill_inr": 22756.669427158544,
+    "calibrated_stopped_per_check": 749.296681990445,
+    "calibrated_net_per_check": 559.6577700974572,
+    "calibrated_accuracy_flag_nothing": 0.9655758215505389,
+    "expected_stopped_per_check": 1154.9800244415023,
+    "expected_net_per_check": 1068.406192578934,
+    "expected_accuracy_queue_flagged": 0.9759440463158847,
+    "top_queue_partners": {
+      "SP3118": 17,
+      "SP3318": 15,
+      "SP3286": 15,
+      "SP3160": 13,
+      "SP3129": 13,
+      "SP3232": 11,
+      "SP3319": 9,
+      "SP3300": 5,
+      "SP3287": 3,
+      "SP3307": 3
+    }
+  },
+  "coefficients_standardised": {
+    "small_uninspected": -0.701,
+    "is_new_partner": -0.254,
+    "new_small_unins": 0.995,
+    "prior_claims": 0.495,
+    "p_rate": 0.496,
+    "p_small_unins_share": -0.123,
+    "log_amt": 0.638
+  }
+}
